@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Water Systems | Nifty Machines</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:linear-gradient(180deg,#f0fdf4,#dcfce7);
+color:#064e3b;
+line-height:1.6;
+}
+
+/* CONTAINER */
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+}
+
+/* HEADINGS */
+h1{
+text-align:center;
+margin-bottom:20px;
+color:#22c55e;
+font-size:32px;
+letter-spacing:1px;
+transition:0.3s;
+}
+
+h1:hover{
+color:#4ade80;
+transform:scale(1.03);
+}
+
+h2{
+text-align:center;
+margin:50px 0 20px;
+color:#22c55e;
+position:relative;
+transition:0.3s;
+}
+
+h2:hover{
+color:#4ade80;
+}
+
+h2::after{
+content:"";
+display:block;
+width:60px;
+height:3px;
+background:#22c55e;
+margin:8px auto 0;
+border-radius:2px;
+}
+
+/* TEXT */
+p{
+text-align:center;
+color:#334155;
+max-width:750px;
+margin:0 auto 15px;
+}
+
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+margin:30px 0;
+}
+
+.gallery img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:12px;
+transition:0.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.08);
+filter:brightness(1.1);
+box-shadow:0 12px 30px rgba(0,0,0,0.2);
+}
+
+
+/* WATER CARDS */
+.equipment-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(10px);
+padding:20px;
+border-radius:14px;
+text-align:center;
+cursor:pointer;
+transition:0.35s ease;
+border:1px solid rgba(0,0,0,0.05);
+}
+
+.card:hover{
+background:#22c55e;
+color:#000;
+transform:translateY(-10px) scale(1.08);
+box-shadow:0 20px 50px rgba(34,197,94,0.4);
+}
+
+.card h3{
+color:#000000;
+}
+
+.card:hover h3{
+color:#000;
+}
+
+/* BUTTON */
+.back{
+display:inline-block;
+margin:40px auto;
+padding:12px 18px;
+background:#22c55e;
+color:#000;
+text-decoration:none;
+border-radius:6px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.back:hover{
+background:#16a34a;
+color:#fff;
+transform:translateY(-3px);
+}
+
+/* WHATSAPP */
+.whatsapp-top{
+position:fixed;
+top:20px;
+right:20px;
+background:#25d366;
+color:#000;
+padding:10px 15px;
+border-radius:6px;
+font-weight:600;
+z-index:1000;
+transition:0.3s;
+}
+
+.whatsapp-top:hover{
+background:#16a34a;
+color:#fff;
+transform:translateY(-2px);
+}
+
+.whatsapp-float{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25d366;
+color:#fff;
+font-size:22px;
+padding:15px;
+border-radius:50%;
+z-index:1000;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.whatsapp-float:hover{
+background:#16a34a;
+transform:scale(1.1);
+}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(5px);
+justify-content:center;
+align-items:center;
+z-index:2000;
+}
+
+.modal-content{
+background:white;
+padding:30px;
+border-radius:14px;
+max-width:500px;
+width:90%;
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,0.25);
+animation:pop 0.25s ease;
+position:relative;
+}
+
+.modal-content h3{
+color:#16a34a;
+margin-bottom:10px;
+font-size:22px;
+}
+
+.modal-content p{
+color:#334155;
+}
+
+@keyframes pop{
+from{
+transform:scale(0.8);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+
+/* SOCIAL */
+.social-section{
+text-align:center;
+margin-top:60px;
+padding:40px 10px;
+background:#ecfdf5;
+}
+
+.social-section h2:hover{
+transform:scale(1.05);
+}
+
+.socials{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+margin-top:20px;
+}
+
+.social{
+padding:12px 20px;
+border-radius:8px;
+text-decoration:none;
+color:white;
+font-weight:600;
+transition:0.3s;
+}
+
+/* COLORS */
+.call{background:#22c55e;color:#000;}
+.youtube{background:#ff0000;}
+.facebook{background:#1877f2;}
+.twitter{background:#000;}
+.tiktok{background:#111;border:1px solid #25f4ee;}
+
+/* HOVER */
+.social:hover{
+background:#22c55e !important;
+color:#000 !important;
+transform:translateY(-4px);
+}
+
+/* MOBILE */
+@media(max-width:600px){
+h1{font-size:24px;}
+.gallery img{height:160px;}
+}
+</style>
+</head>
+
+<body>
+
+<a href="https://wa.me/254725866476" class="whatsapp-top">WhatsApp</a>
+
+<div class="container">
+
+<h1>WATER SYSTEMS FABRICATION</h1>
+
+<p>We design and fabricate advanced stainless steel water purification and storage systems.</p>
+
+<p>Built for clean water delivery, industrial use, and agricultural applications.</p>
+
+<div class="gallery">
+<img src="images/purified_water.jpg">
+<img src="images/water_purification.jpg">
+<img src="images/water_refill.jpg">
+<img src="images/water_holding.jpg">
+</div>
+
+<h2>OUR WATER SOLUTIONS</h2>
+
+<div class="equipment-grid">
+
+<div class="card" onclick="openModal('filtration')"><h3>Filtration Systems</h3></div>
+<div class="card" onclick="openModal('ro')"><h3>Reverse Osmosis</h3></div>
+<div class="card" onclick="openModal('uv')"><h3>UV Sterilization</h3></div>
+<div class="card" onclick="openModal('storage')"><h3>Storage Tanks</h3></div>
+<div class="card" onclick="openModal('treatment')"><h3>Treatment Systems</h3></div>
+<div class="card" onclick="openModal('rain')"><h3>Rain Harvesting</h3></div>
+<div class="card" onclick="openModal('pressure')"><h3>Pressure Systems</h3></div>
+<div class="card" onclick="openModal('custom')"><h3>Custom Solutions</h3></div>
+
+</div>
+
+<div style="text-align:center;">
+<a href="index.html" class="back">← Back to Home</a>
+</div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal" onclick="closeModal()">
+<div class="modal-content" onclick="event.stopPropagation()">
+<h3 id="modalTitle"></h3>
+<p id="modalText"></p>
+</div>
+</div>
+
+<a href="https://wa.me/254725866476" class="whatsapp-float">💬</a>
+
+<section class="social-section">
+<h2>CONNECT WITH US</h2>
+
+<div class="socials">
+<a href="tel:+254725866476" class="social call">📞 Call</a>
+<a href="#" class="social youtube">▶ YouTube</a>
+<a href="#" class="social facebook">📘 Facebook</a>
+<a href="#" class="social twitter">𝕏 Twitter</a>
+<a href="#" class="social tiktok">🎵 TikTok</a>
+</div>
+</section>
+
+<script>
+const data = {
+filtration:{title:"Filtration Systems",text:"High-efficiency filtration ensuring safe and clean water output."},
+ro:{title:"Reverse Osmosis",text:"Advanced purification removing dissolved impurities."},
+uv:{title:"UV Sterilization",text:"Chemical-free sterilization eliminating bacteria."},
+storage:{title:"Storage Tanks",text:"Durable stainless steel water storage solutions."},
+treatment:{title:"Treatment Systems",text:"Industrial-scale water treatment for various applications."},
+rain:{title:"Rain Harvesting",text:"Sustainable systems for collecting and storing rainwater."},
+pressure:{title:"Pressure Systems",text:"Reliable systems ensuring steady water flow."},
+custom:{title:"Custom Systems",text:"Tailor-made solutions built to your needs."}
+};
+
+function openModal(key){
+document.getElementById("modal").style.display="flex";
+document.getElementById("modalTitle").innerText=data[key].title;
+document.getElementById("modalText").innerText=data[key].text;
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+</script>
+
+</body>
+</html>

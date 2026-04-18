@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dairy Equipment | Nifty Machines</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter', sans-serif;
+}
+
+/* ===== GLOBAL ===== */
+body{
+background:#f8fafc; /* LIGHT CLEAN */
+color:#0f172a;
+line-height:1.6;
+}
+
+/* CONTAINER */
+.container{
+max-width:1100px;
+margin:auto;
+padding:30px 15px;
+}
+
+/* HEADER */
+h1{
+text-align:center;
+margin-bottom:20px;
+color:#16a34a;
+font-size:30px;
+letter-spacing:2px;
+font-weight:800;
+transition:0.3s;
+}
+
+h1:hover{
+transform:scale(1.08);
+color:#22c55e;
+text-shadow:0 0 10px rgba(34,197,94,0.4);
+}
+
+/* TEXT */
+p{
+margin-bottom:15px;
+color:#334155;
+font-size:15px;
+}
+
+/* SECTION TITLES */
+h2{
+text-align:center;
+margin-top:50px;
+margin-bottom:20px;
+color:#16a34a;
+font-size:24px;
+transition:0.3s;
+}
+
+h2:hover{
+transform:scale(1.1);
+letter-spacing:2px;
+color:#22c55e;
+}
+
+/* IMAGE GRID */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:18px;
+margin:30px 0;
+}
+
+.gallery img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:12px;
+cursor:pointer;
+transition:0.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.1);
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* LIST */
+.equipment-list ul{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+margin-top:20px;
+list-style:none;
+}
+
+.equipment-list li{
+background:#ffffff;
+padding:15px;
+border-radius:10px;
+font-weight:700;
+text-align:center;
+cursor:pointer;
+transition:0.35s;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* 🔥 STRONG HOVER */
+.equipment-list li:hover{
+background:#22c55e;
+color:#fff;
+transform:translateY(-8px) scale(1.08);
+box-shadow:0 15px 35px rgba(34,197,94,0.5);
+}
+
+/* BUTTON */
+.back{
+display:inline-block;
+margin-top:35px;
+padding:12px 20px;
+background:#22c55e;
+color:#fff;
+text-decoration:none;
+border-radius:8px;
+font-weight:700;
+transition:0.35s;
+}
+
+.back:hover{
+transform:scale(1.1);
+background:#16a34a;
+box-shadow:0 10px 25px rgba(34,197,94,0.5);
+}
+
+/* ===== SOCIAL ===== */
+.social-section{
+text-align:center;
+margin-top:60px;
+padding:50px 15px;
+background:#ffffff;
+border-top:1px solid #e2e8f0;
+}
+
+.social-section h2{
+color:#16a34a;
+}
+
+.socials{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.social{
+padding:14px 22px;
+border-radius:10px;
+text-decoration:none;
+color:white;
+font-weight:700;
+transition:0.35s;
+}
+
+/* COLORS */
+.call{background:#22c55e;}
+.youtube{background:#ff0000;}
+.facebook{background:#1877f2;}
+.twitter{background:#000;}
+.tiktok{background:#111;border:2px solid #25f4ee;}
+
+/* 🔥 STRONG SOCIAL HOVER */
+.social:hover{
+transform:scale(1.15) translateY(-6px);
+background:#16a34a !important;
+box-shadow:0 10px 30px rgba(34,197,94,0.6);
+}
+
+/* WHATSAPP */
+.whatsapp-top{
+position:fixed;
+top:20px;
+right:20px;
+background:#25d366;
+color:#fff;
+padding:12px 18px;
+border-radius:8px;
+text-decoration:none;
+font-weight:700;
+z-index:1000;
+transition:0.3s;
+}
+
+.whatsapp-top:hover{
+transform:scale(1.1);
+box-shadow:0 10px 25px rgba(37,211,102,0.6);
+}
+
+.whatsapp-float{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25d366;
+color:#fff;
+font-size:24px;
+padding:16px;
+border-radius:50%;
+z-index:1000;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.whatsapp-float:hover{
+transform:scale(1.2);
+box-shadow:0 10px 30px rgba(37,211,102,0.6);
+}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+justify-content:center;
+align-items:center;
+z-index:2000;
+}
+
+.modal-content{
+background:#ffffff;
+padding:25px;
+border-radius:12px;
+max-width:500px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+animation:fadeIn 0.3s ease;
+}
+
+.modal-content h3{
+color:#16a34a;
+margin-bottom:10px;
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+from{opacity:0; transform:scale(0.9);}
+to{opacity:1; transform:scale(1);}
+}
+
+/* MOBILE */
+@media(max-width:600px){
+h1{font-size:24px;}
+h2{font-size:20px;}
+.gallery img{height:160px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<a href="https://wa.me/254725866476" class="whatsapp-top">WhatsApp</a>
+
+<div class="container">
+
+<h1>DAIRY EQUIPMENT FABRICATION</h1>
+
+<p>
+At Nifty Machines Limited, we specialize in designing and fabricating high-quality stainless steel dairy equipment tailored for small to medium-scale farms and milk processing businesses across Kenya.
+</p>
+
+<p>
+We deliver custom-built solutions that are reliable, easy to maintain, and suited for local operating conditions.
+</p>
+
+<div class="gallery">
+<img src="images/cisterns.jpg">
+<img src="images/milk_atms.jpg">
+<img src="images/mini_dairy_plant.jpg">
+<img src="images/yoghurt_making.jpg">
+</div>
+
+<h2>Our Dairy Equipment Includes</h2>
+
+<div class="equipment-list">
+<ul>
+<li onclick="openModal('cooling')">Milk Cooling Tanks</li>
+<li onclick="openModal('pasteurizer')">Milk Pasteurizers</li>
+<li onclick="openModal('storage')">Milk Storage Tanks</li>
+<li onclick="openModal('transport')">Milk Transport Tanks</li>
+<li onclick="openModal('cheese')">Cheese Vats</li>
+<li onclick="openModal('yogurt')">Yogurt Units</li>
+<li onclick="openModal('separator')">Cream Separators</li>
+<li onclick="openModal('butter')">Butter Churns</li>
+<li onclick="openModal('reception')">Reception Tanks</li>
+<li onclick="openModal('filter')">Filtering Systems</li>
+<li onclick="openModal('homogenizer')">Homogenizers</li>
+<li onclick="openModal('heating')">Heating Tanks</li>
+<li onclick="openModal('packaging')">Packaging Units</li>
+<li onclick="openModal('cans')">Milk Cans</li>
+<li onclick="openModal('cip')">CIP Systems</li>
+</ul>
+</div>
+
+<a href="index.html" class="back">← Back to Home</a>
+
+</div>
+
+<div id="modal" class="modal" onclick="closeModal()">
+<div class="modal-content" onclick="event.stopPropagation()">
+<h3 id="modalTitle"></h3>
+<p id="modalText"></p>
+</div>
+</div>
+
+<a href="https://wa.me/254725866476" class="whatsapp-float">💬</a>
+
+<section class="social-section">
+<h2>CONNECT WITH US</h2>
+
+<div class="socials">
+<a href="tel:+254725866476" class="social call">📞 Call</a>
+<a href="#" class="social youtube">▶ YouTube</a>
+<a href="#" class="social facebook">📘 Facebook</a>
+<a href="#" class="social twitter">𝕏 Twitter</a>
+<a href="#" class="social tiktok">🎵 TikTok</a>
+</div>
+</section>
+
+<script>
+const data = {
+cooling: {
+title: "Milk Cooling Tanks",
+text: "Rapid cooling systems designed to preserve milk freshness and prevent bacterial growth."
+},
+
+pasteurizer: {
+title: "Milk Pasteurizers",
+text: "Heat treatment systems that eliminate harmful bacteria while preserving milk quality."
+},
+
+storage: {
+title: "Milk Storage Tanks",
+text: "Hygienic stainless steel tanks for safe milk storage and handling."
+},
+
+transport: {
+title: "Milk Transport Tanks",
+text: "Insulated tanks designed for safe milk transportation without contamination."
+},
+
+cheese: {
+title: "Cheese Processing Vats",
+text: "Controlled vats used in cheese production with precise temperature handling."
+},
+
+yogurt: {
+title: "Yogurt Processing Units",
+text: "Fermentation systems designed for consistent yogurt production."
+},
+
+separator: {
+title: "Cream Separators",
+text: "Efficient machines that separate cream from milk with high precision."
+},
+
+butter: {
+title: "Butter Churns",
+text: "Durable churn systems designed for efficient butter production."
+},
+
+reception: {
+title: "Milk Reception Tanks",
+text: "First-stage intake tanks for hygienic milk handling and inspection."
+},
+
+filter: {
+title: "Milk Filtering Systems",
+text: "Remove impurities and ensure clean milk processing."
+},
+
+homogenizer: {
+title: "Milk Homogenizers",
+text: "Ensure uniform texture and consistency in milk products."
+},
+
+heating: {
+title: "Milk Heating Tanks",
+text: "Controlled heating systems for processing milk safely."
+},
+
+packaging: {
+title: "Milk Packaging Units",
+text: "Automated hygienic filling and packaging systems."
+},
+
+cans: {
+title: "Stainless Steel Milk Cans",
+text: "Durable and corrosion-resistant milk transport containers."
+},
+
+cip: {
+title: "CIP Cleaning Systems",
+text: "Clean-in-place systems for automated equipment sanitation."
+}
+};
+
+function openModal(key){
+const modal = document.getElementById("modal");
+modal.style.display="flex";
+
+const box = document.querySelector(".modal-content");
+box.style.transform = "scale(0.8)";
+setTimeout(()=>{ box.style.transform = "scale(1)"; },10);
+
+document.getElementById("modalTitle").innerText=data[key].title;
+document.getElementById("modalText").innerText=data[key].text;
+}
+
+
+function closeModal(){
+document.getElementById("modal").style.display = "none";
+}
+</script>
+
+
+</body>
+</html>
