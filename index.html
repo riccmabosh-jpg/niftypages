@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nifty Machines Limited</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+/* ===== GLOBAL ===== */
+body{
+background:#f8fafc; /* LIGHT CLEAN BACKGROUND */
+color:#0f172a;
+}
+
+/* HEADER */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 5%;
+background:#ffffff;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* LOGO */
+.logo-text{
+color:#16a34a;
+font-size:26px;
+font-weight:900;
+letter-spacing:3px;
+text-transform:uppercase;
+transition:0.4s;
+}
+
+.logo-text:hover{
+color:#22c55e;
+transform:scale(1.1);
+text-shadow:0 0 15px rgba(34,197,94,0.6);
+}
+
+/* BUTTON */
+.btn{
+padding:12px 20px;
+background:#22c55e;
+border-radius:8px;
+font-weight:bold;
+text-decoration:none;
+color:#fff;
+display:inline-block;
+transition:0.35s;
+}
+
+.btn:hover{
+background:#16a34a;
+transform:scale(1.08);
+box-shadow:0 10px 25px rgba(34,197,94,0.5);
+}
+
+/* MINI HERO */
+.mini-hero{
+background:#22c55e;
+color:#fff;
+text-align:center;
+padding:12px;
+font-size:22px;
+}
+
+/* HERO */
+.hero{
+height:65vh;
+background:url("images/hero_edit.png") center/cover no-repeat;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero-overlay{
+background:rgba(255,255,255,0.85); /* LIGHT OVERLAY */
+padding:30px;
+border-radius:12px;
+max-width:700px;
+backdrop-filter:blur(6px);
+}
+
+.hero h2{
+font-size:34px;
+margin-bottom:15px;
+color:#0f172a;
+}
+
+.hero p{
+color:#334155;
+margin-bottom:20px;
+}
+
+/* SECTIONS */
+.section{
+padding:70px 5%;
+text-align:center;
+}
+
+.section h2{
+color:#16a34a;
+font-size:28px;
+margin-bottom:15px;
+transition:0.3s;
+}
+
+.section h2:hover{
+transform:scale(1.1);
+color:#22c55e;
+letter-spacing:2px;
+}
+
+/* SERVICES */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+margin-top:30px;
+}
+
+.card{
+background:#ffffff;
+padding:25px;
+border-radius:12px;
+text-decoration:none;
+color:#0f172a;
+transition:0.35s;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.05);
+background:#22c55e;
+color:#fff;
+box-shadow:0 15px 40px rgba(34,197,94,0.4);
+}
+
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+margin-top:30px;
+}
+
+.gallery img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:10px;
+cursor:pointer;
+transition:0.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.1);
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* MAP */
+.map iframe{
+width:100%;
+height:300px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* CTA */
+.cta{
+background:#ffffff;
+padding:60px 5%;
+text-align:center;
+}
+
+/* SOCIAL */
+.socials{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.social{
+padding:14px 22px;
+border-radius:10px;
+text-decoration:none;
+color:white;
+font-weight:700;
+transition:0.35s;
+}
+
+/* BRIGHT COLORS */
+.call{background:#22c55e;color:#fff;}
+.youtube{background:#ff0000;}
+.facebook{background:#1877f2;}
+.twitter{background:#000;}
+.tiktok{background:#111;border:2px solid #25f4ee;}
+
+/* 🔥 STRONG HOVER EFFECT */
+.social:hover{
+transform:scale(1.15) translateY(-6px);
+background:#16a34a !important;
+color:#fff !important;
+box-shadow:0 10px 30px rgba(34,197,94,0.6);
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:25px;
+background:#ffffff;
+color:#64748b;
+border-top:1px solid #e2e8f0;
+}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+z-index:1000;
+}
+
+.modal img{
+max-width:90%;
+max-height:90%;
+border-radius:12px;
+}
+
+/* WHATSAPP */
+.whatsapp-top{
+position:fixed;
+top:20px;
+right:20px;
+background:#25d366;
+color:#fff;
+padding:12px 18px;
+border-radius:8px;
+text-decoration:none;
+font-weight:700;
+z-index:2000;
+transition:0.3s;
+}
+
+.whatsapp-top:hover{
+transform:scale(1.1);
+box-shadow:0 10px 25px rgba(37,211,102,0.6);
+}
+
+.whatsapp-float{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25d366;
+color:white;
+font-size:24px;
+padding:16px;
+border-radius:50%;
+z-index:1000;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.whatsapp-float:hover{
+transform:scale(1.2);
+box-shadow:0 10px 30px rgba(37,211,102,0.6);
+}
+
+/* MOBILE */
+@media(max-width:600px){
+.hero{height:auto;padding:50px 10px;}
+.hero h2{font-size:24px}
+.hero p{font-size:14px}
+.logo-text{font-size:20px;}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1 class="logo-text">NIFTY MACHINES</h1>
+</header>
+
+<a href="https://wa.me/254725866476" class="whatsapp-top">WhatsApp</a>
+
+<section class="mini-hero">
+<p>Mechanizing Your Hustle</p>
+</section>
+
+<section class="hero">
+<div class="hero-overlay">
+<h2>Industrial Stainless Steel Equipment</h2>
+<p>Built for durability, hygiene, and performance across Kenya.</p>
+<a href="https://wa.me/254725866476" class="btn">Get Quote</a>
+</div>
+</section>
+
+<section class="section">
+<h2>Our Services</h2>
+
+<div class="services">
+
+<a href="dairy.html" class="card">
+<h3>Dairy Equipment</h3>
+<p>Milk tanks, cooling systems and dairy processing.</p>
+</a>
+
+<a href="kitchen.html" class="card">
+<h3>Kitchen Equipment</h3>
+<p>Commercial stainless kitchens & fittings.</p>
+</a>
+
+<a href="food.html" class="card">
+<h3>Food Processing</h3>
+<p>Machines for local production businesses.</p>
+</a>
+
+<a href="water.html" class="card">
+<h3>Water Systems</h3>
+<p>Purification and filtration solutions.</p>
+</a>
+
+</div>
+</section>
+
+<section class="section">
+<h2>Recent Projects</h2>
+
+<div class="gallery">
+<img src="images/cisterns.jpg">
+<img src="images/kitchen.jpg">
+<img src="images/rails.png">
+<img src="images/atm1.jpg">
+<img src="images/mini_dairy_plant.jpg">
+<img src="images/purified_water.jpg">
+<img src="images/workshop.jpg">
+<img src="images/milk_atms.jpg">
+<img src="images/water_tanker.jpg">
+<img src="images/water_tanker_2.jpg">
+</div>
+</section>
+
+<section class="section map">
+<h2>Visit Us in Ruiru</h2>
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d249.3133099501515!2d36.961166399902!3d-1.1512342750772675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2ske!4v1776505530335!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
+
+<section class="cta">
+<h2>Connect With Us</h2>
+
+<div class="socials">
+<a href="tel:+254725866476" class="social call">📞 Call</a>
+<a href="#" class="social youtube">▶ YouTube</a>
+<a href="#" class="social facebook">📘 Facebook</a>
+<a href="#" class="social twitter">𝕏 Twitter</a>
+<a href="#" class="social tiktok">🎵 TikTok</a>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Nifty Machines Limited | Ruiru, Kenya</p>
+</footer>
+
+<a href="https://wa.me/254725866476" class="whatsapp-float">💬</a>
+
+<div id="modal" class="modal" onclick="this.style.display='none'">
+<img id="modalImg">
+</div>
+
+<script>
+document.querySelectorAll(".gallery img").forEach(img=>{
+img.onclick = ()=>{
+document.getElementById("modal").style.display="flex";
+document.getElementById("modalImg").src = img.src;
+};
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kitchen Equipment | Nifty Machines</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:linear-gradient(180deg,#f8fafc,#e2e8f0);
+color:#0f172a;
+}
+
+
+/* CONTAINER */
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+}
+
+/* HEADINGS */
+h1{
+text-align:center;
+margin-bottom:20px;
+color:#16a34a;
+font-size:32px;
+letter-spacing:1px;
+transition:0.3s;
+}
+
+h1:hover{
+color:#22c55e;
+transform:scale(1.06);
+text-shadow:0 5px 20px rgba(34,197,94,0.4);
+}
+
+h2{
+text-align:center;
+margin:50px 0 20px;
+color:#16a34a;
+position:relative;
+transition:0.3s;
+}
+
+h2:hover{
+color:#4ade80;
+}
+
+h2::after{
+content:"";
+display:block;
+width:60px;
+height:3px;
+background:#22c55e;
+margin:8px auto 0;
+border-radius:2px;
+}
+
+/* TEXT */
+p{
+color:#334155;
+text-align:center;
+max-width:750px;
+margin:0 auto 15px;
+}
+
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+margin:30px 0;
+}
+
+.gallery img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:10px;
+transition:0.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.08);
+filter:brightness(1.1) contrast(1.05);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+
+/* EQUIPMENT CARDS */
+.equipment-list{
+margin-top:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:15px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:12px;
+text-align:center;
+cursor:pointer;
+transition:0.35s ease;
+border:1px solid #e2e8f0;
+}
+
+.card:hover{
+background:#22c55e;
+color:#000;
+transform:translateY(-10px) scale(1.07);
+box-shadow:0 15px 40px rgba(34,197,94,0.35);
+}
+
+.card:hover h3{
+color:#000;
+}
+
+
+.card h3{
+color:#22c55e;
+margin-bottom:10px;
+}
+
+/* BUTTON */
+.back{
+display:inline-block;
+margin:40px auto;
+padding:12px 18px;
+background:#22c55e;
+color:#000;
+text-decoration:none;
+border-radius:6px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.back:hover{
+background:#16a34a;
+color:#fff;
+transform:translateY(-3px);
+}
+
+/* WHATSAPP */
+.whatsapp-top{
+position:fixed;
+top:20px;
+right:20px;
+background:#25d366;
+color:#000;
+padding:10px 15px;
+border-radius:6px;
+font-weight:600;
+z-index:1000;
+transition:0.3s;
+}
+
+.whatsapp-top:hover{
+background:#16a34a;
+color:#fff;
+transform:translateY(-2px);
+}
+
+.whatsapp-float{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25d366;
+color:#fff;
+font-size:22px;
+padding:15px;
+border-radius:50%;
+z-index:1000;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.whatsapp-float:hover{
+background:#16a34a;
+transform:scale(1.1);
+}
+
+/* MODAL */
+/* MODAL BACKDROP */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.4); /* lighter overlay */
+backdrop-filter:blur(4px);
+justify-content:center;
+align-items:center;
+z-index:2000;
+}
+
+/* MODAL BOX */
+.modal-content{
+background:white;
+padding:30px;
+border-radius:14px;
+max-width:500px;
+width:90%;
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,0.25);
+animation:pop 0.25s ease;
+position:relative;
+}
+
+/* TITLE */
+.modal-content h3{
+color:#16a34a;
+margin-bottom:10px;
+font-size:22px;
+}
+
+/* TEXT */
+.modal-content p{
+color:#334155;
+font-size:15px;
+}
+
+/* ANIMATION */
+@keyframes pop{
+from{
+transform:scale(0.8);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+
+/* SOCIAL */
+.social-section{
+text-align:center;
+margin-top:50px;
+padding:40px 10px;
+background:#f1f5f9;
+}
+
+.social-section h2:hover{
+transform:scale(1.05);
+}
+
+.socials{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+margin-top:20px;
+}
+
+.social{
+padding:12px 20px;
+border-radius:8px;
+text-decoration:none;
+color:white;
+font-weight:600;
+transition:0.3s;
+}
+
+/* COLORS */
+.call{background:#22c55e;color:#000;}
+.youtube{background:#ff0000;}
+.facebook{background:#1877f2;}
+.twitter{background:#000;}
+.tiktok{background:#111;border:1px solid #25f4ee;}
+
+/* HOVER */
+.social:hover{
+background:#22c55e !important;
+color:#000 !important;
+transform:translateY(-4px);
+}
+
+/* MOBILE */
+@media(max-width:600px){
+h1{font-size:24px;}
+.gallery img{height:160px;}
+}
+</style>
+</head>
+
+<body>
+
+<a href="https://wa.me/254725866476" class="whatsapp-top">WhatsApp</a>
+
+<div class="container">
+
+<h1>KITCHEN EQUIPMENT FABRICATION</h1>
+
+<p>We design and fabricate stainless steel kitchen systems for hotels, restaurants, and institutions in Kenya.</p>
+
+<p>Built for hygiene, durability, and efficient workflow in commercial kitchens.</p>
+
+<div class="gallery">
+<img src="images/kitchen.jpg">
+<img src="images/deep_fryer.jpg">
+<img src="images/food_display.jpg">
+<img src="images/kitchen_accessories.jpg">
+</div>
+
+<h2>OUR KITCHEN EQUIPMENT</h2>
+
+<div class="equipment-list">
+
+<div class="card" onclick="openModal('tables')"><h3>Work Tables</h3></div>
+<div class="card" onclick="openModal('sinks')"><h3>Commercial Sinks</h3></div>
+<div class="card" onclick="openModal('counters')"><h3>Prep Counters</h3></div>
+<div class="card" onclick="openModal('hoods')"><h3>Extractor Hoods</h3></div>
+<div class="card" onclick="openModal('storage')"><h3>Storage Cabinets</h3></div>
+<div class="card" onclick="openModal('dish')"><h3>Dish Stations</h3></div>
+<div class="card" onclick="openModal('bakery')"><h3>Bakery Equipment</h3></div>
+<div class="card" onclick="openModal('layouts')"><h3>Custom Layouts</h3></div>
+
+</div>
+
+<div style="text-align:center;">
+<a href="index.html" class="back">← Back to Home</a>
+</div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal" onclick="closeModal()">
+<div class="modal-content" onclick="event.stopPropagation()">
+<h3 id="modalTitle"></h3>
+<p id="modalText"></p>
+</div>
+</div>
+
+<a href="https://wa.me/254725866476" class="whatsapp-float">💬</a>
+
+<section class="social-section">
+<h2>CONNECT WITH US</h2>
+
+<div class="socials">
+<a href="tel:+254725866476" class="social call">📞 Call</a>
+<a href="#" class="social youtube">▶ YouTube</a>
+<a href="#" class="social facebook">📘 Facebook</a>
+<a href="#" class="social twitter">𝕏 Twitter</a>
+<a href="#" class="social tiktok">🎵 TikTok</a>
+</div>
+</section>
+
+<script>
+const data = {
+tables:{title:"Work Tables",text:"Heavy-duty stainless steel tables built for hygiene and durability."},
+sinks:{title:"Commercial Sinks",text:"Efficient washing systems designed for high-volume kitchens."},
+counters:{title:"Prep Counters",text:"Optimized food preparation surfaces for efficiency."},
+hoods:{title:"Extractor Hoods",text:"Proper ventilation systems for smoke and heat control."},
+storage:{title:"Storage Cabinets",text:"Secure stainless storage solutions for kitchen items."},
+dish:{title:"Dish Stations",text:"Industrial dishwashing setups for large kitchens."},
+bakery:{title:"Bakery Equipment",text:"Specialized stainless equipment for baking environments."},
+layouts:{title:"Kitchen Layouts",text:"Custom kitchen setups designed for workflow efficiency."}
+};
+
+function openModal(key){
+const modal = document.getElementById("modal");
+modal.style.display="flex";
+
+const box = document.querySelector(".modal-content");
+box.style.transform = "scale(0.8)";
+setTimeout(()=>{ box.style.transform = "scale(1)"; },10);
+
+document.getElementById("modalTitle").innerText=data[key].title;
+document.getElementById("modalText").innerText=data[key].text;
+}
+
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+</script>
+
+</body>
+</html>

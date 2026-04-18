@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Food Processing Equipment | Nifty Machines</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+
+/* 🌞 BRIGHT BACKGROUND */
+body{
+background:linear-gradient(to bottom right,#f8fafc,#e2e8f0);
+color:#0f172a;
+line-height:1.6;
+}
+
+/* CONTAINER */
+.container{
+max-width:1100px;
+margin:auto;
+padding:25px 15px;
+}
+
+/* HEADINGS */
+h1{
+text-align:center;
+margin-bottom:20px;
+color:#16a34a;
+font-size:30px;
+transition:0.3s;
+}
+
+h1:hover{
+color:#22c55e;
+transform:scale(1.05);
+text-shadow:0 0 15px rgba(34,197,94,0.4);
+}
+
+h2{
+text-align:center;
+margin-top:50px;
+margin-bottom:20px;
+color:#16a34a;
+position:relative;
+transition:0.3s;
+}
+
+h2:hover{
+letter-spacing:1px;
+transform:scale(1.05);
+}
+
+h2::after{
+content:"";
+display:block;
+width:60px;
+height:3px;
+background:#22c55e;
+margin:8px auto 0;
+border-radius:2px;
+}
+
+/* TEXT */
+p{
+margin-bottom:15px;
+color:#334155;
+text-align:center;
+}
+
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:15px;
+margin:30px 0;
+}
+
+.gallery img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:12px;
+cursor:pointer;
+transition:0.4s;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.gallery img:hover{
+transform:scale(1.08) rotate(1deg);
+box-shadow:0 15px 30px rgba(34,197,94,0.3);
+}
+
+/* EQUIPMENT LIST */
+.equipment-list ul{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:15px;
+list-style:none;
+margin-top:20px;
+}
+
+.equipment-list li{
+background:white;
+padding:16px;
+border-radius:12px;
+font-weight:600;
+text-align:center;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* 🔥 STRONG HOVER EFFECT */
+.equipment-list li:hover{
+background:#22c55e;
+color:white;
+transform:translateY(-8px) scale(1.08);
+box-shadow:0 15px 30px rgba(34,197,94,0.4);
+}
+
+/* BUTTON */
+.back{
+display:inline-block;
+margin-top:30px;
+padding:12px 20px;
+background:#22c55e;
+color:#000;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.back:hover{
+background:#16a34a;
+color:white;
+transform:translateY(-3px) scale(1.05);
+box-shadow:0 10px 25px rgba(34,197,94,0.4);
+}
+
+/* SOCIAL SECTION */
+.social-section{
+text-align:center;
+margin-top:60px;
+padding:40px 10px;
+background:#f1f5f9;
+border-top:1px solid #cbd5f5;
+}
+
+.socials{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.social{
+padding:12px 20px;
+border-radius:10px;
+text-decoration:none;
+color:white;
+font-weight:600;
+transition:0.3s;
+}
+
+/* COLORS */
+.call{background:#22c55e;color:#000;}
+.youtube{background:#ff0000;}
+.facebook{background:#1877f2;}
+.twitter{background:#111;}
+.tiktok{background:#000;border:1px solid #25f4ee;}
+
+/* 🔥 STRONG SOCIAL HOVER */
+.social:hover{
+transform:translateY(-5px) scale(1.1);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* WHATSAPP */
+.whatsapp-top{
+position:fixed;
+top:20px;
+right:20px;
+background:#25d366;
+color:#000;
+padding:10px 15px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+z-index:1000;
+transition:0.3s;
+}
+
+.whatsapp-top:hover{
+transform:scale(1.1);
+box-shadow:0 10px 25px rgba(37,211,102,0.5);
+}
+
+.whatsapp-float{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25d366;
+color:#fff;
+font-size:22px;
+padding:15px;
+border-radius:50%;
+z-index:1000;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.whatsapp-float:hover{
+transform:scale(1.2);
+box-shadow:0 10px 25px rgba(37,211,102,0.6);
+}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+justify-content:center;
+align-items:center;
+z-index:2000;
+}
+
+.modal-content{
+background:white;
+padding:25px;
+border-radius:12px;
+max-width:500px;
+text-align:center;
+animation:fadeIn 0.3s ease;
+}
+
+.modal-content h3{
+color:#16a34a;
+margin-bottom:10px;
+}
+
+@keyframes fadeIn{
+from{transform:scale(0.8);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+/* MOBILE */
+@media(max-width:600px){
+.gallery img{height:160px;}
+}
+</style>
+</head>
+
+<body>
+
+<a href="https://wa.me/254725866476" class="whatsapp-top">WhatsApp</a>
+
+<div class="container">
+
+<h1>Food Processing Equipment</h1>
+
+<p>We design and fabricate industrial stainless steel food processing machines across Kenya.</p>
+
+<p>Built for hygiene, efficiency, and scalability.</p>
+
+<div class="gallery">
+<img src="images/food_display.jpg">
+<img src="images/kitchen.jpg">
+<img src="images/kitchen_accessories.jpg">
+<img src="images/packaging_table.jpg">
+</div>
+
+<h2>Our Equipment</h2>
+
+<div class="equipment-list">
+<ul>
+<li onclick="openModal('mixing')">Mixing Tanks</li>
+<li onclick="openModal('conveyor')">Food Conveyors</li>
+<li onclick="openModal('boiling')">Boiling Tanks</li>
+<li onclick="openModal('drying')">Drying Racks</li>
+<li onclick="openModal('packaging')">Packaging Machines</li>
+<li onclick="openModal('sieving')">Industrial Sieves</li>
+<li onclick="openModal('grinding')">Grinding Systems</li>
+<li onclick="openModal('custom')">Custom Machines</li>
+</ul>
+</div>
+
+<a href="index.html" class="back">← Back to Home</a>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal" onclick="closeModal()">
+<div class="modal-content" onclick="event.stopPropagation()">
+<h3 id="modalTitle"></h3>
+<p id="modalText"></p>
+</div>
+</div>
+
+<a href="https://wa.me/254725866476" class="whatsapp-float">💬</a>
+
+<section class="social-section">
+<h2>Connect With Us</h2>
+<div class="socials">
+<a href="tel:+254725866476" class="social call">📞 Call</a>
+<a href="#" class="social youtube">▶ YouTube</a>
+<a href="#" class="social facebook">📘 Facebook</a>
+<a href="#" class="social twitter">𝕏 Twitter</a>
+<a href="#" class="social tiktok">🎵 TikTok</a>
+</div>
+</section>
+
+<script>
+const data = {
+mixing:{title:"Mixing Tanks",text:"High-performance mixing systems for food production."},
+conveyor:{title:"Food Conveyors",text:"Efficient systems to move products across production lines."},
+boiling:{title:"Boiling Tanks",text:"Controlled heating tanks for food processing."},
+drying:{title:"Drying Systems",text:"Industrial racks for dehydration processes."},
+packaging:{title:"Packaging Machines",text:"Automated packaging for safe distribution."},
+sieving:{title:"Sieving Systems",text:"Precision filtering for quality production."},
+grinding:{title:"Grinding Systems",text:"Heavy-duty milling machines."},
+custom:{title:"Custom Machines",text:"Tailor-made food processing solutions."}
+};
+
+function openModal(key){
+const modal = document.getElementById("modal");
+modal.style.display="flex";
+
+const box = document.querySelector(".modal-content");
+box.style.transform = "scale(0.8)";
+setTimeout(()=>{ box.style.transform = "scale(1)"; },10);
+
+document.getElementById("modalTitle").innerText=data[key].title;
+document.getElementById("modalText").innerText=data[key].text;
+}
+
+
+function closeModal(){
+modal.style.display="none";
+}
+</script>
+
+</body>
+</html>
